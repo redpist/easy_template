@@ -12,9 +12,4 @@ Gem::Specification.new do |gem|
   gem.email         = 'redpist.com@gmail.com'
 
   gem.files         = ['lib/easy_template.rb']
-  # gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  # gem.require_paths = ['lib']
-
-  # gem.add_development_dependency 'rake', '~> 10.4'
-
 end
