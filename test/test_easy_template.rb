@@ -38,12 +38,7 @@ class EasyTemplateTest < Minitest::Test
   end
 
   def test_fun
-    assert_equal 'Not bad!',
-                 EasyTemplate::process('{fun {{{}}} {test yeah!}', {'fun {{{}}} {test yeah!' => 'Not bad!'})
-  end
-
-  def test_fun
     assert_equal 'Not bad ={D!',
-                 EasyTemplate::process('{fun {{{}}} {test yeah!}', {'fun {{{}}} {test yeah!' => 'Not bad ={D!'})
+                 EasyTemplate::process('{fun }{{{}}} {test yeah!}', {'fun }{{{}}} {test yeah!' => 'Not bad ={D!'})
   end
 end
