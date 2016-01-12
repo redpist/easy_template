@@ -1,4 +1,4 @@
-# EasyTemplate
+# EasyTemplate [![Gem Version](https://badge.fury.io/rb/easy_template.svg)](https://badge.fury.io/rb/easy_template)
 
 Easy template language in ruby, with only variable substitution.
 
@@ -31,3 +31,7 @@ EasyTemplate::process('\{first name} {last name}!', {
   })
 ```
 _{first name} Simone!_
+
+## License
+
+Copyright © 2016 Jérémy Lecerf, EasyTemplate is free software, and may be redistributed under the terms specified in the [license](LICENSE).
