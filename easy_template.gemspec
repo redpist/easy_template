@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name          = 'easy_template'
-  gem.version       = '1.0.0'
+  gem.version       = '1.0.1'
   gem.description   = "Easy template language in ruby, with only variable substitution."
   gem.summary       = "Easy template language in ruby"
   gem.homepage      = 'https://github.com/redpist/easy-template'
