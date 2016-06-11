@@ -15,26 +15,43 @@ class EasyTemplateTest < Minitest::Test
   def test_with_a_single_substitution
     assert_equal 'world!',
                  EasyTemplate::process('{hello}', {'hello' => 'world!'})
+    assert_equal 'world!',
+                 EasyTemplate::process('{hello}', {hello: 'world!'})
+            
   end
 
   def test_with_static_text_and_substitution
     assert_equal 'Hello Mr Bowie!',
                  EasyTemplate::process('Hello Mr {last name}!', {'last name' => 'Bowie'})
+    assert_equal 'Hello Mr Bowie!',
+                 EasyTemplate::process('Hello Mr {last name}!', {'last name': 'Bowie'})
   end
 
   def test_with_escaped_text
     assert_equal 'Hello Mrs {first name} Simone!',
                  EasyTemplate::process('Hello Mrs \{first name} {last name}!', {'first name' => 'Nina', 'last name' => 'Simone'})
+    assert_equal 'Hello Mrs {first name} Simone!',
+                 EasyTemplate::process('Hello Mrs \{first name} {last name}!', {'first name': 'Nina', 'last name' => 'Simone'})
+    assert_equal 'Hello Mrs {first name} Simone!',
+                 EasyTemplate::process('Hello Mrs \{first name} {last name}!', {'first name': 'Nina', 'last name':  'Simone'})
+
   end
 
   def test_with_escaped_text_at_begin
     assert_equal '{first name} Simone!',
                  EasyTemplate::process('\{first name} {last name}!', {'first name' => 'Nina', 'last name' => 'Simone'})
+    assert_equal '{first name} Simone!',
+                 EasyTemplate::process('\{first name} {last name}!', {'first name' => 'Nina', 'last name': 'Simone'})
   end
 
   def test_with_escaped_text_everywhere
     assert_equal '{first nam{e} {Simone{',
                  EasyTemplate::process('\{first nam\{e} \{{last name}\{', {'first name' => 'Nina', 'last name' => 'Simone'})
+  end
+
+  def test_uses_both_strings_and_symbols_as_keys
+    assert_equal 'MadBomber was here',
+      EasyTemplate.process('{who} was {where}', {who:'MadBomber', 'where' => 'here'})
   end
 
   def test_fun
